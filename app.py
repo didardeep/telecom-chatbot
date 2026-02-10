@@ -23,11 +23,12 @@ app.secret_key = os.urandom(24)
 
 # ─── Azure OpenAI Configuration ─────────────────────────────────────────────
 client = AzureOpenAI(
-    api_key = "",
-    api_version = "",
-    azure_endpoint="",
+    api_key = "808cf0ccab8445b39c6d8767a7e2c433",
+    api_version = "2023-07-01-preview",
+    azure_endpoint="https://entgptaiuat.openai.azure.com",
 )
 DEPLOYMENT_NAME = "gpt-4o-mini"
+
 
 # ─── Telecom Sector Menu Structure ──────────────────────────────────────────
 # Each subprocess now has a "semantic_scope" that describes the MEANING of that
