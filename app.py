@@ -24,8 +24,8 @@ app.secret_key = os.urandom(24)
 # ─── Azure OpenAI Configuration ─────────────────────────────────────────────
 client = AzureOpenAI(
     api_key = "",
-    api_version = "2023-07-01-preview",
-    azure_endpoint="https://entgptaiuat.openai.azure.com",
+    api_version = "",
+    azure_endpoint="",
 )
 DEPLOYMENT_NAME = "gpt-4o-mini"
 
