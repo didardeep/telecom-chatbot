@@ -29,6 +29,7 @@ client = AzureOpenAI(
 )
 DEPLOYMENT_NAME = "gpt-4o-mini"
 
+
 # ─── Telecom Sector Menu Structure ──────────────────────────────────────────
 # Each subprocess now has a "semantic_scope" that describes the MEANING of that
 # category — not just keywords, but the kinds of real-world problems it covers.

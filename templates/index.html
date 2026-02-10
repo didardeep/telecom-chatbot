@@ -405,6 +405,158 @@
             line-height: 1.6;
         }
 
+        /* ─── Satisfaction Buttons ─── */
+        .satisfaction-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            animation: msgSlide 0.3s ease-out;
+        }
+        .sat-btn {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: var(--radius);
+            font-size: 14px;
+            font-family: inherit;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .sat-btn.yes {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            color: var(--success);
+        }
+        .sat-btn.yes:hover {
+            background: var(--success);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+        }
+        .sat-btn.no {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            color: #f87171;
+        }
+        .sat-btn.no:hover {
+            background: var(--danger);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+        }
+
+        /* ─── Unsatisfied Options ─── */
+        .unsat-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 10px;
+            animation: msgSlide 0.3s ease-out;
+        }
+        .unsat-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 18px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-size: 13.5px;
+            font-family: inherit;
+            color: var(--text-primary);
+            text-align: left;
+            width: 100%;
+        }
+        .unsat-btn:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+            transform: translateX(4px);
+        }
+        .unsat-btn .o-icon {
+            width: 38px; height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .unsat-btn .o-icon.retry { background: rgba(59, 130, 246, 0.15); }
+        .unsat-btn .o-icon.human { background: rgba(245, 158, 11, 0.15); }
+        .unsat-btn .o-icon.newc  { background: rgba(139, 92, 246, 0.15); }
+        .unsat-btn .o-info { flex: 1; }
+        .unsat-btn .o-title { font-weight: 600; font-size: 13.5px; }
+        .unsat-btn .o-desc { font-size: 11.5px; color: var(--text-muted); margin-top: 2px; }
+        .unsat-btn .o-arrow {
+            color: var(--text-muted);
+            font-size: 16px;
+            transition: transform 0.2s;
+        }
+        .unsat-btn:hover .o-arrow {
+            transform: translateX(3px);
+            color: var(--accent-light);
+        }
+
+        /* ─── Handoff Card ─── */
+        .handoff-box {
+            background: var(--bg-card);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-left: 3px solid var(--warning);
+            border-radius: var(--radius);
+            padding: 18px;
+            margin-top: 8px;
+            animation: msgSlide 0.4s ease-out;
+        }
+        .handoff-box h4 {
+            color: var(--warning);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        .handoff-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 13px;
+        }
+        .handoff-row:last-child { border-bottom: none; }
+        .handoff-row .h-label { color: var(--text-muted); min-width: 100px; }
+        .handoff-row .h-value { color: var(--text-primary); font-weight: 500; }
+        .handoff-ref {
+            margin-top: 12px;
+            padding: 10px 14px;
+            background: var(--surface);
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--accent-light);
+            text-align: center;
+            letter-spacing: 0.05em;
+        }
+
+        /* ─── Thank You ─── */
+        .thankyou-box {
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-top: 8px;
+            text-align: center;
+            animation: msgSlide 0.4s ease-out;
+        }
+        .thankyou-box .ty-icon { font-size: 36px; margin-bottom: 8px; }
+        .thankyou-box .ty-title { font-size: 16px; font-weight: 600; color: var(--success); }
+        .thankyou-box .ty-msg { font-size: 13px; color: var(--text-secondary); margin-top: 6px; line-height: 1.5; }
+
         /* ─── Responsive ─── */
         @media (max-width: 540px) {
             .app-container { border: none; }
@@ -686,17 +838,124 @@
         chatArea.appendChild(box);
         scrollToBottom();
 
-        // Follow up
+        // Ask satisfaction
         setTimeout(() => {
-            addBotMessage(
-                `I hope these steps help! 🙏<br><br>` +
-                `Would you like to <strong>raise another complaint</strong>? Select a category below or type your next query.`
-            );
-            setTimeout(() => showSectorMenu(), 400);
+            addBotMessage(`Were these steps helpful? Did they resolve your issue?`);
+            showSatisfactionButtons();
         }, 1000);
 
         sendBtn.disabled = false;
+        state.step = 'feedback';
+    }
+
+    // ═══════════════════════════════════════════════════════════════
+    //  Satisfaction + Human Intervention Flow (frontend only)
+    // ═══════════════════════════════════════════════════════════════
+
+    function showSatisfactionButtons() {
+        const container = document.createElement('div');
+        container.className = 'satisfaction-container';
+        const yesBtn = document.createElement('button');
+        yesBtn.className = 'sat-btn yes';
+        yesBtn.innerHTML = '👍 Yes, Resolved';
+        yesBtn.onclick = handleSatisfied;
+        const noBtn = document.createElement('button');
+        noBtn.className = 'sat-btn no';
+        noBtn.innerHTML = '👎 No, Not Resolved';
+        noBtn.onclick = handleUnsatisfied;
+        container.appendChild(yesBtn);
+        container.appendChild(noBtn);
+        chatArea.appendChild(container);
+        scrollToBottom();
+    }
+
+    function handleSatisfied() {
+        addUserMessage('Yes, my issue is resolved ✅');
+        const box = document.createElement('div');
+        box.className = 'thankyou-box';
+        box.innerHTML = `
+            <div class="ty-icon">🎉</div>
+            <div class="ty-title">Thank You!</div>
+            <div class="ty-msg">We're glad we could help resolve your issue.<br>
+            If you face any other telecom issues, feel free to come back anytime!</div>`;
+        chatArea.appendChild(box);
+        scrollToBottom();
+        setTimeout(() => {
+            addBotMessage(`If you have any other complaints, feel free to select a category below.`);
+            setTimeout(() => showSectorMenu(), 400);
+        }, 2000);
         state.step = 'resolved';
+    }
+
+    function handleUnsatisfied() {
+        addUserMessage('No, my issue is not resolved ❌');
+        addBotMessage(`I'm sorry the steps didn't resolve your issue. Here's what we can do next:`);
+        setTimeout(() => showUnsatisfiedOptions(), 400);
+    }
+
+    function showUnsatisfiedOptions() {
+        const container = document.createElement('div');
+        container.className = 'unsat-options';
+        const options = [
+            { cls: 'retry', icon: '🔄', title: 'Describe Again', desc: 'Provide more details for better resolution steps', fn: handleRetry },
+            { cls: 'human', icon: '👤', title: 'Connect to Human Agent', desc: 'Request a callback from a customer support executive', fn: handleHumanHandoff },
+            { cls: 'newc',  icon: '📋', title: 'Raise a New Complaint', desc: 'Start fresh with a different category', fn: handleNewComplaint },
+        ];
+        options.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'unsat-btn';
+            btn.innerHTML = `
+                <div class="o-icon ${opt.cls}">${opt.icon}</div>
+                <div class="o-info"><div class="o-title">${opt.title}</div><div class="o-desc">${opt.desc}</div></div>
+                <div class="o-arrow">›</div>`;
+            btn.onclick = opt.fn;
+            container.appendChild(btn);
+        });
+        chatArea.appendChild(container);
+        scrollToBottom();
+    }
+
+    function handleRetry() {
+        addUserMessage('I want to describe my issue again');
+        addBotMessage(`Sure! Please <strong>describe your issue again</strong> with as much detail as possible — include error messages, when it started, what you've already tried, etc.`);
+        setInputVisible(true, 'Describe your issue in more detail...');
+        state.step = 'query';
+    }
+
+    function handleNewComplaint() {
+        addUserMessage('I want to raise a new complaint');
+        addBotMessage(`Sure! Let's start fresh. Please select your <strong>telecom service category</strong>:`);
+        setTimeout(() => showSectorMenu(), 400);
+        state.step = 'sector';
+    }
+
+    function handleHumanHandoff() {
+        addUserMessage('Connect me to a human agent');
+        const refNum = 'TC-' + Date.now().toString(36).toUpperCase() + '-' +
+                       Math.random().toString(36).substring(2, 6).toUpperCase();
+        const box = document.createElement('div');
+        box.className = 'handoff-box';
+        box.innerHTML = `
+            <h4>👤 Human Agent Request Submitted</h4>
+            <div class="handoff-row"><span class="h-label">Category</span><span class="h-value">${state.sectorName || 'Telecom'}</span></div>
+            <div class="handoff-row"><span class="h-label">Issue Type</span><span class="h-value">${state.subprocessName || 'General'}</span></div>
+            <div class="handoff-row"><span class="h-label">Complaint</span><span class="h-value">${state.queryText || 'N/A'}</span></div>
+            <div class="handoff-row"><span class="h-label">Status</span><span class="h-value" style="color:var(--warning)">⏳ Pending Agent Assignment</span></div>
+            <div class="handoff-ref">Reference No: ${refNum}</div>`;
+        chatArea.appendChild(box);
+        scrollToBottom();
+        setTimeout(() => {
+            addBotMessage(
+                `Your request has been submitted. A customer support executive will contact you shortly.<br><br>` +
+                `📌 Please save your reference number: <strong>${refNum}</strong><br><br>` +
+                `You can also try these while you wait:<br>` +
+                `• Call your telecom provider's helpline<br>` +
+                `• Visit the nearest service center<br>` +
+                `• File a complaint on the <strong>TRAI PG Portal</strong><br><br>` +
+                `Is there anything else I can help you with?`);
+            setTimeout(() => showSectorMenu(), 400);
+        }, 1500);
+        state.step = 'human_handoff';
     }
 
     function restartChat() {
