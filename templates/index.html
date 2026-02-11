@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telecom Complaint Assistant</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #0a0e17;
-            --bg-secondary: #111827;
-            --bg-card: #1a2235;
-            --bg-card-hover: #1f2a40;
-            --surface: #243049;
-            --border: #2a3a55;
-            --border-glow: #3b82f6;
+            --bg-primary: #0a0f1e;
+            --bg-secondary: #0f1629;
+            --bg-card: #162040;
+            --bg-card-hover: #1c2a52;
+            --surface: #1e3264;
+            --border: #24407a;
+            --border-glow: #005EB8;
             --text-primary: #f1f5f9;
             --text-secondary: #94a3b8;
-            --text-muted: #64748b;
-            --accent: #3b82f6;
-            --accent-light: #60a5fa;
-            --accent-glow: rgba(59, 130, 246, 0.15);
+            --text-muted: #6b82a8;
+            --accent: #005EB8;
+            --accent-light: #0091DA;
+            --accent-glow: rgba(0, 94, 184, 0.2);
             --success: #10b981;
             --warning: #f59e0b;
             --danger: #ef4444;
-            --gradient-1: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-            --gradient-2: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%);
+            --gradient-1: linear-gradient(135deg, #005EB8 0%, #483698 100%);
+            --gradient-2: linear-gradient(135deg, #0091DA 0%, #005EB8 100%);
             --shadow-lg: 0 10px 40px rgba(0,0,0,0.4);
             --radius: 12px;
             --radius-lg: 16px;
@@ -33,7 +33,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'DM Sans', sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
             min-height: 100vh;
@@ -51,9 +51,9 @@
             width: 200%;
             height: 200%;
             background:
-                radial-gradient(ellipse at 20% 20%, rgba(59, 130, 246, 0.06) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.04) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(14, 165, 233, 0.03) 0%, transparent 60%);
+                radial-gradient(ellipse at 20% 20%, rgba(0, 51, 141, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(72, 54, 152, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(0, 145, 218, 0.04) 0%, transparent 60%);
             z-index: 0;
             animation: bgShift 20s ease-in-out infinite alternate;
         }
@@ -77,7 +77,7 @@
 
         .header {
             padding: 16px 20px;
-            background: linear-gradient(180deg, rgba(26, 34, 53, 0.98) 0%, rgba(17, 24, 39, 0.95) 100%);
+            background: linear-gradient(180deg, rgba(16, 26, 52, 0.98) 0%, rgba(15, 22, 41, 0.95) 100%);
             border-bottom: 1px solid var(--border);
             backdrop-filter: blur(20px);
             display: flex;
@@ -93,7 +93,7 @@
             align-items: center;
             justify-content: center;
             font-size: 20px;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 94, 184, 0.4);
         }
         .header-info h1 { font-size: 16px; font-weight: 600; letter-spacing: -0.02em; }
         .header-info p { font-size: 11.5px; color: var(--text-muted); margin-top: 1px; }
@@ -283,19 +283,6 @@
             color: #000;
         }
 
-        /* ─── Disabled state for all interactive buttons ─── */
-        .menu-card.disabled,
-        .subprocess-chip.disabled,
-        .sat-btn.disabled,
-        .action-btn.disabled,
-        .unsat-btn.disabled {
-            opacity: 0.4;
-            pointer-events: none;
-            cursor: not-allowed;
-            transform: none !important;
-            box-shadow: none !important;
-        }
-
         .resolution-box {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -363,7 +350,7 @@
             transition: all 0.2s;
             flex-shrink: 0;
         }
-        .send-btn:hover { transform: scale(1.05); box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); }
+        .send-btn:hover { transform: scale(1.05); box-shadow: 0 4px 15px rgba(0, 94, 184, 0.4); }
         .send-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
         .input-hint {
             text-align: center;
@@ -457,8 +444,8 @@
             gap: 8px;
         }
         .action-btn.menu-btn {
-            background: rgba(59, 130, 246, 0.1);
-            border: 1px solid rgba(59, 130, 246, 0.4);
+            background: rgba(0, 94, 184, 0.1);
+            border: 1px solid rgba(0, 94, 184, 0.4);
             color: var(--accent-light);
         }
         .action-btn.menu-btn:hover {
@@ -529,9 +516,9 @@
             font-size: 18px;
             flex-shrink: 0;
         }
-        .unsat-btn .o-icon.retry { background: rgba(59, 130, 246, 0.15); }
+        .unsat-btn .o-icon.retry { background: rgba(0, 94, 184, 0.15); }
         .unsat-btn .o-icon.human { background: rgba(245, 158, 11, 0.15); }
-        .unsat-btn .o-icon.newc  { background: rgba(139, 92, 246, 0.15); }
+        .unsat-btn .o-icon.newc  { background: rgba(72, 54, 152, 0.15); }
         .unsat-btn .o-info { flex: 1; }
         .unsat-btn .o-title { font-weight: 600; font-size: 13.5px; }
         .unsat-btn .o-desc { font-size: 11.5px; color: var(--text-muted); margin-top: 2px; }
@@ -702,13 +689,6 @@
         el.style.height = Math.min(el.scrollHeight, 120) + 'px';
     }
 
-    function disableAllButtons() {
-        chatArea.querySelectorAll('.menu-card, .subprocess-chip, .sat-btn, .action-btn, .unsat-btn').forEach(btn => {
-            btn.classList.add('disabled');
-            btn.onclick = null;
-        });
-    }
-
     function handleKeyDown(e) {
         if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();
@@ -767,7 +747,6 @@
     }
 
     async function selectSector(key, name) {
-        disableAllButtons();
         state.sectorKey = key;
         state.sectorName = name;
         addUserMessage(name);
@@ -798,7 +777,6 @@
     }
 
     function selectSubprocess(key, name) {
-        disableAllButtons();
         state.subprocessKey = key;
         state.subprocessName = name;
         addUserMessage(name);
@@ -906,7 +884,6 @@
     }
 
     function handleSatisfied() {
-        disableAllButtons();
         addUserMessage('Yes, my issue is resolved ✅');
         const box = document.createElement('div');
         box.className = 'thankyou-box';
@@ -925,7 +902,6 @@
     }
 
     function handleUnsatisfied() {
-        disableAllButtons();
         addUserMessage('No, my issue is not resolved ❌');
         addBotMessage(`I'm sorry the steps didn't resolve your issue. Here's what we can do next:`);
         setTimeout(() => showUnsatisfiedOptions(), 400);
@@ -953,7 +929,6 @@
     }
 
     function handleBackToMenu() {
-        disableAllButtons();
         addUserMessage('Main Menu');
         addBotMessage(`Sure! Please select your <strong>telecom service category</strong>:`);
         setTimeout(() => showSectorMenu(), 400);
@@ -961,7 +936,6 @@
     }
 
     function handleExit() {
-        disableAllButtons();
         addUserMessage('Exit');
         const box = document.createElement('div');
         box.className = 'exit-box';
@@ -1010,7 +984,6 @@
     }
 
     function handleRetry() {
-        disableAllButtons();
         addUserMessage('I want to describe my issue again');
         addBotMessage(`Sure! Please <strong>describe your issue again</strong> with as much detail as possible — include error messages, when it started, what you've already tried, etc.`);
         setInputVisible(true, 'Describe your issue in more detail...');
@@ -1025,7 +998,6 @@
     }
 
     function handleHumanHandoff() {
-        disableAllButtons();
         addUserMessage('Connect me to a human agent');
         const refNum = 'TC-' + Date.now().toString(36).toUpperCase() + '-' +
                        Math.random().toString(36).substring(2, 6).toUpperCase();

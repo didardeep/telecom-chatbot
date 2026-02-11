@@ -23,7 +23,7 @@ app.secret_key = os.urandom(24)
 
 # ─── Azure OpenAI Configuration ─────────────────────────────────────────────
 client = AzureOpenAI(
-    api_key = "",
+    api_key = "",  # Replace with your actual API key
     api_version = "",
     azure_endpoint="",
 )
