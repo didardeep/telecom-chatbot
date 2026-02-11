@@ -43,7 +43,6 @@
             overflow: hidden;
         }
 
-        /* ─── Background Effect ─── */
         body::before {
             content: '';
             position: fixed;
@@ -63,7 +62,6 @@
             100% { transform: translate(-2%, -2%) rotate(3deg); }
         }
 
-        /* ─── App Container ─── */
         .app-container {
             position: relative;
             z-index: 1;
@@ -77,7 +75,6 @@
             border-right: 1px solid var(--border);
         }
 
-        /* ─── Header ─── */
         .header {
             padding: 16px 20px;
             background: linear-gradient(180deg, rgba(26, 34, 53, 0.98) 0%, rgba(17, 24, 39, 0.95) 100%);
@@ -89,8 +86,7 @@
             flex-shrink: 0;
         }
         .header-icon {
-            width: 44px;
-            height: 44px;
+            width: 44px; height: 44px;
             border-radius: var(--radius);
             background: var(--gradient-1);
             display: flex;
@@ -99,16 +95,8 @@
             font-size: 20px;
             box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
         }
-        .header-info h1 {
-            font-size: 16px;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-        }
-        .header-info p {
-            font-size: 11.5px;
-            color: var(--text-muted);
-            margin-top: 1px;
-        }
+        .header-info h1 { font-size: 16px; font-weight: 600; letter-spacing: -0.02em; }
+        .header-info p { font-size: 11.5px; color: var(--text-muted); margin-top: 1px; }
         .status-dot {
             width: 8px; height: 8px;
             background: var(--success);
@@ -117,10 +105,7 @@
             box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
             animation: pulse 2s infinite;
         }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
         .restart-btn {
             margin-left: 8px;
             padding: 6px 12px;
@@ -139,7 +124,6 @@
             border-color: var(--accent);
         }
 
-        /* ─── Chat Area ─── */
         .chat-area {
             flex: 1;
             overflow-y: auto;
@@ -153,7 +137,6 @@
         .chat-area::-webkit-scrollbar-track { background: transparent; }
         .chat-area::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
 
-        /* ─── Messages ─── */
         .message {
             max-width: 88%;
             padding: 12px 16px;
@@ -190,7 +173,6 @@
             max-width: 100%;
         }
 
-        /* ─── Typing Indicator ─── */
         .typing-indicator {
             display: none;
             align-self: flex-start;
@@ -216,7 +198,6 @@
             30% { transform: translateY(-6px); opacity: 1; }
         }
 
-        /* ─── Menu Cards ─── */
         .menu-container {
             display: flex;
             flex-direction: column;
@@ -268,7 +249,6 @@
             color: var(--accent-light);
         }
 
-        /* ─── Sub-process chips ─── */
         .subprocess-grid {
             display: flex;
             flex-wrap: wrap;
@@ -303,7 +283,6 @@
             color: #000;
         }
 
-        /* ─── Resolution Box ─── */
         .resolution-box {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -325,7 +304,6 @@
             font-weight: 600;
         }
 
-        /* ─── Input Area ─── */
         .input-area {
             padding: 12px 16px 16px;
             background: var(--bg-secondary);
@@ -381,7 +359,6 @@
             margin-top: 8px;
         }
 
-        /* ─── Language Badge ─── */
         .lang-badge {
             display: inline-block;
             padding: 3px 10px;
@@ -392,7 +369,6 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* ─── Non-telecom warning ─── */
         .non-telecom-warning {
             background: rgba(239, 68, 68, 0.08);
             border: 1px solid rgba(239, 68, 68, 0.25);
@@ -405,7 +381,6 @@
             line-height: 1.6;
         }
 
-        /* ─── Satisfaction Buttons ─── */
         .satisfaction-container {
             display: flex;
             gap: 10px;
@@ -447,7 +422,62 @@
             box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
         }
 
-        /* ─── Unsatisfied Options ─── */
+        /* ─── Post-Feedback Action Buttons (Menu / Exit) ─── */
+        .post-feedback-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            animation: msgSlide 0.3s ease-out;
+        }
+        .action-btn {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: var(--radius);
+            font-size: 14px;
+            font-family: inherit;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .action-btn.menu-btn {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            color: var(--accent-light);
+        }
+        .action-btn.menu-btn:hover {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+        .action-btn.exit-btn {
+            background: rgba(100, 116, 139, 0.1);
+            border: 1px solid rgba(100, 116, 139, 0.4);
+            color: var(--text-secondary);
+        }
+        .action-btn.exit-btn:hover {
+            background: var(--surface);
+            color: var(--text-primary);
+            border-color: var(--text-muted);
+        }
+
+        /* ─── Exit Box ─── */
+        .exit-box {
+            background: rgba(100, 116, 139, 0.08);
+            border: 1px solid rgba(100, 116, 139, 0.25);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-top: 8px;
+            text-align: center;
+            animation: msgSlide 0.4s ease-out;
+        }
+        .exit-box .exit-icon { font-size: 36px; margin-bottom: 8px; }
+        .exit-box .exit-title { font-size: 16px; font-weight: 600; color: var(--text-primary); }
+        .exit-box .exit-msg { font-size: 13px; color: var(--text-secondary); margin-top: 6px; line-height: 1.5; }
+
         .unsat-options {
             display: flex;
             flex-direction: column;
@@ -502,7 +532,6 @@
             color: var(--accent-light);
         }
 
-        /* ─── Handoff Card ─── */
         .handoff-box {
             background: var(--bg-card);
             border: 1px solid rgba(245, 158, 11, 0.3);
@@ -543,7 +572,6 @@
             letter-spacing: 0.05em;
         }
 
-        /* ─── Thank You ─── */
         .thankyou-box {
             background: rgba(16, 185, 129, 0.08);
             border: 1px solid rgba(16, 185, 129, 0.25);
@@ -557,7 +585,6 @@
         .thankyou-box .ty-title { font-size: 16px; font-weight: 600; color: var(--success); }
         .thankyou-box .ty-msg { font-size: 13px; color: var(--text-secondary); margin-top: 6px; line-height: 1.5; }
 
-        /* ─── Responsive ─── */
         @media (max-width: 540px) {
             .app-container { border: none; }
             .message { max-width: 92%; }
@@ -567,7 +594,6 @@
 <body>
 
 <div class="app-container">
-    <!-- Header -->
     <div class="header">
         <div class="header-icon">📡</div>
         <div class="header-info">
@@ -578,10 +604,8 @@
         <button class="restart-btn" onclick="restartChat()">↻ Restart</button>
     </div>
 
-    <!-- Chat Area -->
     <div class="chat-area" id="chatArea"></div>
 
-    <!-- Input Area -->
     <div class="input-area" id="inputArea" style="display: none;">
         <div class="input-row">
             <textarea id="userInput" placeholder="Describe your issue..." rows="1"
@@ -593,9 +617,8 @@
 </div>
 
 <script>
-    // ─── State ───────────────────────────────────────────────────────────
     let state = {
-        step: 'welcome',       // welcome | sector | subprocess | query | resolved
+        step: 'welcome',
         sectorKey: null,
         sectorName: null,
         subprocessKey: null,
@@ -609,7 +632,6 @@
     const userInput = document.getElementById('userInput');
     const sendBtn = document.getElementById('sendBtn');
 
-    // ─── Helpers ─────────────────────────────────────────────────────────
     function scrollToBottom() {
         setTimeout(() => chatArea.scrollTop = chatArea.scrollHeight, 100);
     }
@@ -674,7 +696,6 @@
         }
     }
 
-    // ─── API Calls ───────────────────────────────────────────────────────
     async function apiCall(endpoint, body) {
         const resp = await fetch(endpoint, {
             method: 'POST',
@@ -684,7 +705,6 @@
         return resp.json();
     }
 
-    // ─── Chat Flow ───────────────────────────────────────────────────────
     function startChat() {
         chatArea.innerHTML = '';
         state = { step: 'welcome', sectorKey: null, sectorName: null, subprocessKey: null, subprocessName: null, language: 'English', queryText: '' };
@@ -697,7 +717,6 @@
                 `<em>🌐 You can type in any language — I'll respond in your preferred language.</em><br><br>` +
                 `Please select your <strong>telecom service category</strong> below:`
             );
-
             setTimeout(() => showSectorMenu(), 400);
         }, 500);
     }
@@ -790,7 +809,6 @@
 
         state.queryText = text;
 
-        // Detect language
         showTyping();
         try {
             const langData = await apiCall('/api/detect-language', { text });
@@ -799,7 +817,6 @@
 
         addSystemMessage(`🌐 Language detected: ${state.language}`);
 
-        // Get resolution
         const resolveData = await apiCall('/api/resolve', {
             query: text,
             sector_key: state.sectorKey,
@@ -823,12 +840,10 @@
             return;
         }
 
-        // Show identified subprocess if it was "Others"
         if (resolveData.identified_subprocess && state.subprocessName?.includes('Other')) {
             addSystemMessage(`🔍 Identified category: ${resolveData.identified_subprocess}`);
         }
 
-        // Show resolution
         const box = document.createElement('div');
         box.className = 'resolution-box';
         box.innerHTML = `<h4>✅ Resolution Steps</h4>` +
@@ -838,7 +853,6 @@
         chatArea.appendChild(box);
         scrollToBottom();
 
-        // Ask satisfaction
         setTimeout(() => {
             addBotMessage(`Were these steps helpful? Did they resolve your issue?`);
             showSatisfactionButtons();
@@ -849,7 +863,7 @@
     }
 
     // ═══════════════════════════════════════════════════════════════
-    //  Satisfaction + Human Intervention Flow (frontend only)
+    //  Satisfaction + Post-Feedback Flow
     // ═══════════════════════════════════════════════════════════════
 
     function showSatisfactionButtons() {
@@ -881,9 +895,9 @@
         chatArea.appendChild(box);
         scrollToBottom();
         setTimeout(() => {
-            addBotMessage(`If you have any other complaints, feel free to select a category below.`);
-            setTimeout(() => showSectorMenu(), 400);
-        }, 2000);
+            addBotMessage(`What would you like to do next?`);
+            showPostFeedbackActions();
+        }, 1500);
         state.step = 'resolved';
     }
 
@@ -893,13 +907,56 @@
         setTimeout(() => showUnsatisfiedOptions(), 400);
     }
 
+    // ─── Post-Feedback: Menu / Exit buttons ──────────────────────
+    function showPostFeedbackActions() {
+        const container = document.createElement('div');
+        container.className = 'post-feedback-actions';
+
+        const menuBtn = document.createElement('button');
+        menuBtn.className = 'action-btn menu-btn';
+        menuBtn.innerHTML = '🏠 Main Menu';
+        menuBtn.onclick = handleBackToMenu;
+
+        const exitBtn = document.createElement('button');
+        exitBtn.className = 'action-btn exit-btn';
+        exitBtn.innerHTML = '🚪 Exit';
+        exitBtn.onclick = handleExit;
+
+        container.appendChild(menuBtn);
+        container.appendChild(exitBtn);
+        chatArea.appendChild(container);
+        scrollToBottom();
+    }
+
+    function handleBackToMenu() {
+        addUserMessage('Main Menu');
+        addBotMessage(`Sure! Please select your <strong>telecom service category</strong>:`);
+        setTimeout(() => showSectorMenu(), 400);
+        state.step = 'sector';
+    }
+
+    function handleExit() {
+        addUserMessage('Exit');
+        const box = document.createElement('div');
+        box.className = 'exit-box';
+        box.innerHTML = `
+            <div class="exit-icon">👋</div>
+            <div class="exit-title">Goodbye!</div>
+            <div class="exit-msg">Thank you for using the Telecom Complaint Assistant.<br>
+            Have a great day! Click <strong>Restart</strong> anytime to start a new session.</div>`;
+        chatArea.appendChild(box);
+        scrollToBottom();
+        setInputVisible(false);
+        state.step = 'exited';
+    }
+
     function showUnsatisfiedOptions() {
         const container = document.createElement('div');
         container.className = 'unsat-options';
         const options = [
             { cls: 'retry', icon: '🔄', title: 'Describe Again', desc: 'Provide more details for better resolution steps', fn: handleRetry },
             { cls: 'human', icon: '👤', title: 'Connect to Human Agent', desc: 'Request a callback from a customer support executive', fn: handleHumanHandoff },
-            { cls: 'newc',  icon: '📋', title: 'Raise a New Complaint', desc: 'Start fresh with a different category', fn: handleNewComplaint },
+            { cls: 'newc',  icon: '📋', title: 'Main Menu', desc: 'Go back to the main service category menu', fn: handleBackToMenu },
         ];
         options.forEach(opt => {
             const btn = document.createElement('button');
@@ -911,6 +968,17 @@
             btn.onclick = opt.fn;
             container.appendChild(btn);
         });
+
+        // Add Exit as a separate styled button at the bottom
+        const exitBtn = document.createElement('button');
+        exitBtn.className = 'unsat-btn';
+        exitBtn.innerHTML = `
+            <div class="o-icon" style="background: rgba(100, 116, 139, 0.15);">🚪</div>
+            <div class="o-info"><div class="o-title">Exit</div><div class="o-desc">End this session</div></div>
+            <div class="o-arrow">›</div>`;
+        exitBtn.onclick = handleExit;
+        container.appendChild(exitBtn);
+
         chatArea.appendChild(container);
         scrollToBottom();
     }
@@ -952,8 +1020,8 @@
                 `• Call your telecom provider's helpline<br>` +
                 `• Visit the nearest service center<br>` +
                 `• File a complaint on the <strong>TRAI PG Portal</strong><br><br>` +
-                `Is there anything else I can help you with?`);
-            setTimeout(() => showSectorMenu(), 400);
+                `What would you like to do next?`);
+            setTimeout(() => showPostFeedbackActions(), 400);
         }, 1500);
         state.step = 'human_handoff';
     }
@@ -962,7 +1030,6 @@
         startChat();
     }
 
-    // ─── Init ────────────────────────────────────────────────────────────
     startChat();
 </script>
 </body>
