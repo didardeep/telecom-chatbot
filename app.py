@@ -25,9 +25,9 @@ CORS(app)
 
 # ─── Azure OpenAI Configuration ─────────────────────────────────────────────
 client = AzureOpenAI(
-    api_key="808cf0ccab8445b39c6d8767a7e2c433",
+    api_key="",
     api_version="2023-07-01-preview",
-    azure_endpoint="https://entgptaiuat.openai.azure.com",
+    azure_endpoint="",
 )
 DEPLOYMENT_NAME = "gpt-4o-mini"
 
